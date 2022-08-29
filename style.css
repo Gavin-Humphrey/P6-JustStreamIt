@@ -1,0 +1,411 @@
+html {
+    font-family: 'Roboto Condensed', sans-serif;
+    background-color: #ffffff;
+}
+
+body {
+  background-color: #ffffff;
+  margin: 0;
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+  min-height: 100vh;
+  max-width: 800px;
+  width: 100%;
+  gap: 24px;
+  margin: auto;
+}
+
+/* defining header  */
+
+header {
+  background-color: #8c7f6d;
+  display: grid;
+  grid-template-areas:
+  'heading logo'
+  'nav logo'
+  ;
+  grid-template-columns: 1fr auto;
+  padding: 32px;
+  gap: 16px;
+}
+
+@media (min-width: 640) {
+  header {
+    grid-template-areas:
+    'heading nav logo'
+    ;
+    grid-template-columns: 2fr 1fr auto;
+  }
+}
+
+header .heading {grid-area: heading; }
+header .menu {grid-area: nav; }
+header .logo {grid-area: logo; }
+
+
+.heading {
+  display: grid;
+  align-content: center;
+}
+
+.heading h2 {
+  color: #ffffff;
+  margin: 0;
+}
+
+nav {
+  display: grid;
+  align-content: center;
+}
+
+nav ul {
+  padding: 0;
+  margin: 0;
+  white-space: nowrap;
+}
+
+nav ul li {
+  display: inline;
+}
+
+nav ul li  + li:before{
+  color: #FFFFFF;
+  content: " | ";
+  padding: 0 10px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #FFFFFF;
+}
+
+nav ul li a:active {
+  color: #001534;
+}
+
+nav ul li a:hover {
+  color: rgb(66, 66, 66);
+}
+
+.logo {
+  display: grid;
+  align-items: center;
+}
+
+.logo img {
+  max-width: 100px;
+  filter: invert(100%)
+}
+
+/* Section */
+
+section {
+  visibility: hidden;
+  display: grid;
+  grid-template-areas:
+  'image'
+  'title'
+  'button'
+  'summary'
+  ;
+}
+
+@media (min-width: 640) {
+  section{
+    grid-template-areas:
+      'title image'
+      'button image'
+      'summary image'
+      ;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: auto auto 1fr;
+  }
+
+  section .image {
+    grid-row: span 2;
+  }
+}
+
+section .image {grid-area: image; }
+section .title {grid-area: title; }
+section .button {grid-area: button; }
+section .summary {grid-area: summary; }
+
+.main_card {
+  padding: 16px;
+  margin-left: 16px;
+  margin-right: 16px;
+  border: solid 1.6px #8c7f6d;
+}
+
+@media (min-width: 800px) {
+  .main_card {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+
+.main_card .title {
+  text-align: center;
+}
+
+.main_card .button {
+  text-align: center;
+}
+
+.main_card .button button{
+  
+  border-radius: 50px;
+  background-color: #8c7f6d;
+  color: white;
+  font-size: 17px;
+  padding: 4.8px 16px 4.8px 16px;
+  cursor: pointer;
+  transition-duration: 0.3s;
+  outline: none;
+}
+
+.main_card .button button:hover {
+    background-color: white; 
+    color: black;
+}
+
+.main_card .image {
+  text-align: center;
+}
+
+.main_card .image img {
+  width: 100%;
+  max-width: 240px;
+}
+
+@media (min-width: 640px) {
+  .main_card .summary {
+    padding-right: 16px;
+  }
+}
+
+
+
+.films {
+  visibility: hidden;
+  border: none;
+  margin: 0px 0px 10px 0px;
+  padding: 5px;
+}
+
+.films h2 {
+  text-align: center;
+  margin-top: 0;
+}
+
+
+/* Carousel */
+
+.carousel {
+  display: grid;
+  gap: 5px;
+  grid-template-areas: 'arrow_left movies_list_container arrow_right';
+  grid-template-rows: auto 1fr auto;
+}
+
+.arrow.left {grid-area: arrow_left; }
+.arrow.right {grid-area: arrow_right; }
+.film_card_list {grid-area: movies_list_container; }
+
+.arrow {
+  display: grid;
+  align-content: center;
+}
+
+.film_card_list {
+  overflow: hidden;
+  padding: 24px 1.6px 24px 1.6px;
+}
+
+.film_list {
+  display: grid;
+  align-content: center;
+  width: 700%;
+  gap: 16px;
+  grid-template-columns: repeat(7, auto);
+}
+
+@media (min-width: 640px) {
+  .film_list {
+    width: 175%;
+    grid-template-columns: repeat(7, auto);
+  }
+}
+
+.movie_img {
+  text-align: center;
+}
+
+.movie_img img {
+  width: 100%;
+  max-width: 250px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.movie_img img:hover {
+  transform: scale(1.1);
+}
+
+.arrow img {
+  align-self: center;
+  width: 30px;
+  cursor: pointer;
+  transition-duration: 0.3s;
+}
+
+.arrow.left {
+  visibility: hidden;
+}
+
+.arrow img:hover {
+  transform: scale(1.15);
+}
+
+.movies_list {
+  transition: transform 350ms ease-in-out;
+  position: relative;
+  left: 0px;
+}
+
+
+/*  Modal */
+
+.modal {
+  display: none;
+  position: fixed;
+  overflow: auto;
+  right: 0;
+  z-index: 1;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0,0,0);
+  color: white;
+}
+
+.modal .modal_content {
+  display: grid;
+  grid-template-areas:
+  'cross'
+  'title'
+  'parameters'
+  'image'
+  'cast'
+  'rating'
+  'summary'
+  ;
+  gap: 10px;
+  margin: auto;
+  max-width: 800px;
+  padding: 1em;
+}
+
+@media (min-width: 640px) {
+  .modal .modal_content {
+    grid-template-areas:
+    'cross cross'
+    'title title'
+    'parameters parameters'
+    'cast image'
+    'rating image'
+    'summary summary'
+    ;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto  auto auto auto 1fr auto;
+  }
+}
+
+#cross {grid-area: cross; }
+#title {grid-area: title; }
+#film_desc {grid-area: parameters; }
+#cast {grid-area: cast; }
+#rating {grid-area: rating; }
+#modal_image {grid-area: image; }
+#summary {grid-area: summary; }
+
+#cross {
+  text-align: right;
+}
+
+#cross img {
+  padding: 0;
+  margin: 3px;
+  width: 15px;
+  height: 15px;
+  border-radius: 5px;
+  border: solid black 2px;
+  background: white;
+  cursor: pointer;
+  transition-duration: 0.3s;
+}
+
+#cross img:hover {
+  background: #8c7f6d;
+}
+
+#title h3 {
+  text-align: center;
+  margin: 0;
+}
+
+#film_desc ul {
+  text-align: center;
+  padding: 0;
+}
+
+#film_desc ul li{
+  display: inline;
+  white-space: nowrap;
+}
+
+#film_desc ul li  + li:before{
+  content: " | ";
+  padding: 0 10px;
+}
+
+#cast ul {
+  padding: 0;
+}
+
+#cast li {
+  list-style: none;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+#ratings ul {
+  padding: 0;
+}
+
+#ratings li {
+  list-style: none;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+#modal_image {
+  text-align: center;
+}
+
+#modal_image img {
+  width: 100%;
+  max-width: 250px;
+}
+
+/* Footer */ 
+
+footer {
+  border-top: 1px solid red;
+  text-align: center;
+  font-size: 11px;
+  color:red;
+}
+
