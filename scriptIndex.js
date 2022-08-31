@@ -1,3 +1,4 @@
+
 function fetchFilmUrl(url) {
     return fetch(url)
     .then(response => {
@@ -74,7 +75,6 @@ function arrowOpacity(position, arrow_left, arrow_right) {
 }
 
 
-
 function minPosition() {
     let minPosition;
     if (desktop.matches) {
@@ -113,7 +113,6 @@ let best_films_url = `http://localhost:8000/api/v1/titles/?format=json&sort_by=-
 
 getBestFilmsList(best_films_url);
 
-
 // Getting the list of best films based on the API request url.
 
 function getBestFilmsList(url) {
@@ -122,6 +121,55 @@ function getBestFilmsList(url) {
         getBestFilmsData(value.results[0].url);
     });
 }
-
-
 ///////////////////
+// Getting the best films parameters from the best films API url.
+
+function getBestFilmsData(url) {
+    best_film_data = fetchFilmUrl(url);
+    best_film_data.then(film => {
+        console.log(film);
+        displayBestFilm(film);
+    });
+}
+
+
+/* Uploading the best films settings in the .main_card container of the HTML file,  
+and displays the card on the screen immediately after loading all the data.*/
+
+function displayBestFilm(film) {
+    let title_contain = document.querySelector(".main_card .title h2");
+    let summary_contain = document.querySelector(".main_card .summary p");
+    let image_contain = document.querySelector(".main_card .image img");
+    let button_contain = document.querySelector(".main_card .button button");
+    
+    title_contain.textContent = film.title;
+    summary_contain.textContent = film.long_description;
+    image_contain.setAttribute("src", film.image_url);
+    image_contain.setAttribute("alt", film.title);
+    button_contain.addEventListener("click", function() {
+        displayModal(film);
+    });
+
+    document.querySelector(".main_card").style.visibility = "visible";
+}
+
+
+//Definition of variables
+
+let categories = ["", "drama", "comedy", "horror"];
+let categories_urls = get_categories_urls(categories, 2);
+let films_articles = document.querySelectorAll(".films");
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -146,7 +146,7 @@ section .summary {grid-area: summary; }
   }
 }
 
-.main_card .summary {  /**/
+.main_card .summary {  
   text-align: center;
 }
 
@@ -352,7 +352,7 @@ section .summary {grid-area: summary; }
 }
 
 #cross img:hover {
-  background: #8c7f6d;
+  background: rgb(242, 120, 120);
 }
 
 #title h3 {
