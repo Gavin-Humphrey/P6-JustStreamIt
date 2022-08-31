@@ -154,22 +154,3 @@ function displayBestFilm(film) {
 }
 
 
-//Definition of variables
-
-let categories = ["", "drama", "comedy", "horror"];
-let categories_urls = get_categories_urls(categories, 2);
-let films_articles = document.querySelectorAll(".films");
-
-
-
-
-
-
-
-
-
-
-
-
-
-
