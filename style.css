@@ -1,5 +1,5 @@
 html {
-    font-family: 'Roboto Condensed', sans-serif;
+    font-family: 'Roboto', sans-serif;
     background-color: #ffffff;
 }
 
@@ -141,7 +141,8 @@ section .summary {grid-area: summary; }
   padding: 16px;
   margin-left: 16px;
   margin-right: 16px;
-  /*border: solid 1.6px #8c7f6d;*/
+  /*border-bottom: 1px solid red;*/
+  border: solid 2px rgb(161, 134, 24);
 }
 
 @media (min-width: 800px) {
