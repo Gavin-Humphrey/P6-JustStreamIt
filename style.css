@@ -1,6 +1,6 @@
 html {
-    font-family: 'Roboto', sans-serif;
-    background-color: #ffffff;
+  font-family: 'Roboto', sans-serif;
+  background-color: #ffffff;
 }
 
 body {
@@ -99,8 +99,10 @@ nav ul li a:hover {
   
 }
 .logo img:hover {
-  transition: transform 0.9s;/****/
+  transition: transform 1.5s;/****/
   cursor: pointer;
+  filter: invert(25%) sepia(13%) saturate(3207%) 
+  hue-rotate(1000deg) brightness(100%) contrast(100%);
 }
 
 /* Section */
@@ -268,7 +270,8 @@ section .summary {grid-area: summary; }
 
 .arrow img {
   align-self: center;
-  width: 30px;
+  width: 20px;
+  filter: opacity(0.5) drop-shadow(0 0 0 #8c7f6d);
   cursor: pointer;
   transition-duration: 0.3s;
 }
@@ -317,7 +320,7 @@ section .summary {grid-area: summary; }
   gap: 10px;
   margin: auto;
   max-width: 800px;
-  padding: 1em;
+  padding: 16px;
 }
 
 @media (min-width: 640px) {

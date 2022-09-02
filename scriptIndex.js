@@ -20,7 +20,7 @@ function fetchFilmUrl(url) {
 var current_rotation = 0;
 
 document.querySelector(".logo").addEventListener('mouseover', function() {
-	current_rotation += 360;
+	current_rotation += 360 * 2;
 	document.querySelector(".logo img").style.transform = 'rotate(' + current_rotation + 'deg)';
 });
 
@@ -140,7 +140,7 @@ function getBestFilmsData(url) {
     });
 }
 
-/* Uploading the best films settings in the .main_card container of the HTML file,  
+/* Upload the best films settings in the .main_card container of the HTML file,  
 and displays the card on the screen immediately after loading all the data.*/
 
 function displayBestFilm(film) {
@@ -167,7 +167,7 @@ let categories = ["", "drama", "comedy", "horror"];
 let categories_urls = get_categories_urls(categories, 2);
 let films_articles = document.querySelectorAll(".films");
 
-// Calling the functions to get films data and populate the DOM for each category
+// Calling the functions to get films data to fill the DOM for each category
 
 for (let i = 0; i <=3; i++) {
 
@@ -239,4 +239,78 @@ function displayFilms(films, film_article) {
     };
     film_article.style.visibility = "visible";
 };
+
+
+
+// Sets the call of the modal window if a film  is clicked with eventListener.
+
+function setModal(films) {
+    let i = 0;
+    for (image of article.querySelectorAll(".film_img img")) {
+        image.addEventListener("click", function(e, j=i, film=films[i]) {
+            displayModal(films[Number(e.target.className)]);
+        });
+        i += 1;
+    };
+};
+
+// Fills the DOM with the films data, then displays the modal window
+
+function displayModal(film) {
+    let modal = document.getElementById("modalId");
+    
+    image = document.querySelector("#modal_image img");
+    image.setAttribute("src", film.image_url);
+    image.setAttribute("alt", film.title);
+
+    document.querySelector("#title h3").textContent = film.title;
+    
+    document.querySelectorAll("#film_desc ul li")[0].textContent = toString(film.genres);
+    document.querySelectorAll("#film_desc ul li")[1].textContent = toString(film.countries);
+    document.querySelectorAll("#film_desc ul li")[2].textContent = `${film.duration} min`;
+    document.querySelectorAll("#film_desc ul li")[3].textContent = formatDate(film.date_published);
+
+    document.querySelector("#summary p").textContent = film.long_description;
+
+    document.querySelectorAll("#cast ul li")[0].textContent = `Producer: ${toString(film.directors)}`;
+    document.querySelectorAll("#cast ul li")[1].textContent = `Cast: ${toString(film.actors)}`;
+
+    document.querySelectorAll("#ratings ul li")[0].textContent = `Votes: ${film.avg_vote}/10`;
+    document.querySelectorAll("#ratings ul li")[1].textContent = `Imdb: ${film.imdb_score}/10`;
+    document.querySelectorAll("#ratings ul li")[2].textContent = film.worldwide_gross_income;/////////////
+
+    modal.style.display = "block";
+
+    let cross = document.querySelector("#cross img");
+    cross.addEventListener("click", function() {
+        modal.style.display = "none";
+
+    });
+};
+
+
+// Creating date format 
+
+function formatDate(date) {
+    let year = date.slice(0, 4);
+    let month = date.slice(5, 7);
+    let day = date.slice(8, 10);
+    full_date = day + "-" + month + "-" + year;
+    return full_date
+}
+
+
+// Converting arrays into a strings, where each element is seperated by a space and a comma.
+
+function toString(array) {
+    string = "";
+    for (item of array) {
+        if (string === "") {
+            string = item;
+        } else {
+        string = `${string}, ${item}`;
+        }
+    }
+    return string;
+}
 
