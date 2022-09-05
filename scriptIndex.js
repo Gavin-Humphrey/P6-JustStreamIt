@@ -164,7 +164,7 @@ function displayBestFilm(film) {
 
 //Definition of variables
 
-let categories = ["", "drama", "comedy", "horror"];
+let categories = ["", "action", "romance", "crime"];
 let categories_urls = get_categories_urls(categories, 2);
 let films_articles = document.querySelectorAll(".films");
 
@@ -278,7 +278,7 @@ function displayModal(film) {
 
     document.querySelectorAll("#ratings ul li")[0].textContent = `Votes: ${film.avg_vote}/10`;
     document.querySelectorAll("#ratings ul li")[1].textContent = `Imdb: ${film.imdb_score}/10`;
-    document.querySelectorAll("#ratings ul li")[2].textContent = film.worldwide_gross_income;/////////////
+    document.querySelectorAll("#ratings ul li")[2].textContent = film.worldwide_gross_income;
 
     modal.style.display = "block";
 
