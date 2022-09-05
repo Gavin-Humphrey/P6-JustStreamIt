@@ -99,7 +99,7 @@ nav ul li a:hover {
   
 }
 .logo img:hover {
-  transition: transform 1.5s;/****/
+  transition: transform 1.5s;
   cursor: pointer;
   filter: invert(25%) sepia(13%) saturate(3207%) 
   hue-rotate(1000deg) brightness(100%) contrast(100%);
