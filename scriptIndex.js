@@ -1,4 +1,3 @@
-
 function fetchFilmUrl(url) {
     return fetch(url)
     .then(response => {
@@ -17,6 +16,8 @@ function fetchFilmUrl(url) {
     }
 
 
+// Logo animation
+
 var current_rotation = 0;
 
 document.querySelector(".logo").addEventListener('mouseover', function() {
@@ -25,7 +26,7 @@ document.querySelector(".logo").addEventListener('mouseover', function() {
 });
 
 
-/* variables Definition */
+// variables Definition 
 
 let arrows_right = document.getElementsByClassName("arrow right");
 let arrows_left = document.getElementsByClassName("arrow left");
