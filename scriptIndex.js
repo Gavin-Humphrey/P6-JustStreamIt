@@ -1,3 +1,5 @@
+// Making the API call with ajax, which returns a json object
+
 function fetchFilmUrl(url) {
     return fetch(url)
     .then(response => {
@@ -35,6 +37,8 @@ let positions = [0, 0, 0, 0];
 let desktop = window.matchMedia("(min-width: 640px)");
 
 
+/** Modifying the translate of the carousel, the sliding of the carousel, 
+ * based on the click of the arrows */
 
 for (let i = 0; i <= 3; i++) {
 
@@ -69,6 +73,7 @@ for (let i = 0; i <= 3; i++) {
     });
 }
 
+// Hides and displays the arrows based on the carousel's positioning
 
 function arrowOpacity(position, arrow_left, arrow_right) {
     if (position === 0) {
