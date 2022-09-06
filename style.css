@@ -432,7 +432,7 @@ section .summary {grid-area: summary; }
 
 /* Scroll to top btn */
 
-#myBtn {
+#topBtn {
   display: none; 
   position: fixed; 
   bottom: 20px; 
@@ -450,9 +450,10 @@ section .summary {grid-area: summary; }
   font-weight: bold;
 }
 
-#myBtn:hover {
+#topBtn:hover {
   background-color: #8c7f6d;
-  color: #ffffff; 
+  color: #ffffff;
+  box-shadow: 2px 3px 4px;
 }
 
 /* Footer */ 
