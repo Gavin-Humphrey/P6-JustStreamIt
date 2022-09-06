@@ -10,10 +10,10 @@ function fetchFilmUrl(url) {
         }
     })
     .catch(e => {
-      console.log(`There is a problem while executing operation - "${url}": ` + e.message);
+      console.log(`Problem encountered while executing operation - "${url}": ` + e.message);
     })
     .finally(() => {
-        console.log(`Operation for "${url}" was successful.`);
+        console.log(`Executed operation for "${url}" has terminated.`);
       });
     }
 
