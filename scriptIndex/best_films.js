@@ -33,7 +33,7 @@ function displayBestFilm(film) {
     let title_contain = document.querySelector(".main_card .title h2");
     let summary_contain = document.querySelector(".main_card .summary p");
     let image_contain = document.querySelector(".main_card .image img");
-    let button_contain = document.querySelector(".main_card .button button");
+    let button_contain = document.querySelector(".main_card .button p ");
     
     title_contain.textContent = film.title;
     summary_contain.textContent = film.long_description;

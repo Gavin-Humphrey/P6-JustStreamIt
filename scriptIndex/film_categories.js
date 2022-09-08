@@ -1,8 +1,8 @@
-//Definition of variables
 
 let categories = ["",  "action", "romance", "crime"];
 let categories_urls = get_categories_urls(categories, 2);
 let films_articles = document.querySelectorAll(".films");
+
 
 // Calling the functions to get films data to fill the DOM for each category
 
@@ -30,11 +30,11 @@ for (let i = 0; i <=3; i++) {
 
 function get_category_urls(category, nb_of_pages) {
     let urls = [];
-    for (let i = 1; i <= nb_of_pages; i++) {    
+    for (let i = 1; i <= nb_of_pages; i++) { 
         var url =  `http://localhost:8000/api/v1/titles/?format=json&genre=${category}&page=${i}&sort_by=-imdb_score`;
-        urls.push(url);
+        urls.push(url); 
     }
-    return urls;
+    return urls; 
 };
 
 
@@ -46,6 +46,8 @@ function get_categories_urls(categories, nb_of_pages) {
         urls.push(get_category_urls(category, nb_of_pages));
     }
     return urls;
+    
+    
 }
 
 
@@ -68,7 +70,8 @@ and displays the block on the screen immediately after loading all the data.*/
 
 function displayFilms(films, film_article) {
     article = film_article;
-    let i = 0;
+        let i = 0; 
+         
     for (image of article.querySelectorAll(".film_img img")) {
         image.setAttribute("src", films[i].image_url);
         image.setAttribute("alt", films[i].title);
