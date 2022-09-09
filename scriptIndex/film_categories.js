@@ -45,9 +45,7 @@ function get_categories_urls(categories, nb_of_pages) {
     for (let category of categories) {
         urls.push(get_category_urls(category, nb_of_pages));
     }
-    return urls;
-    
-    
+    return urls; 
 }
 
 

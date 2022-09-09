@@ -33,8 +33,8 @@ function displayModal(film) {
 
     document.querySelectorAll("#ratings ul li")[0].textContent = `Rating : ${film.avg_vote}/10`;
     document.querySelectorAll("#ratings ul li")[1].textContent = `IMDB Score : ${film.imdb_score}/10`;
-    document.querySelectorAll("#ratings ul li")[2].textContent = `Box Office : ${film.worldwide_gross_income} $`;
-
+    document.querySelectorAll("#ratings ul li")[2].textContent = `Box Office : ${film.worldwide_gross_income} USD`;
+    
     modal.style.display = "block";
 
     let cross = document.querySelector("#cross img");

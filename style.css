@@ -206,7 +206,7 @@ section .summary {grid-area: summary; }
   max-width: 800px;
   max-height: 400px;
   object-fit: cover;
-  box-shadow: 2px 3px 4px;
+  box-shadow: 4px 6px 8px;
 }
 
 @media (min-width: 640px) {
